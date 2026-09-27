@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html><head><style id="qw-theme">:root {
+  --color-bg: #121218;
+  --color-text: #e4e4ed;
+  --color-navbar-bg: #1a1a24;
+  --color-bg-chat-view: #121218;
+  --color-bg-secondary: #1a1a24;
+  --color-bg-tertiary: #1e1e2a;
+  --color-bg-hover: #2a2a38;
+  --color-surface: #1e1e2a;
+  --color-surface-hover: #2a2a38;
+  --color-surface-active: #353546;
+  --color-border: #ffffff1f;
+  --color-border-light: #ffffff0f;
+  --color-border-strong: #3a3a4e;
+  --color-primary: #8575ff;
+  --color-primary-dark: #4200db;
+  --color-primary-light: #8575ff;
+  --color-primary-bg: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-primary-hover-border: #4200db;
+  --color-nav-icon-active: #8575ff;
+  --color-nav-hover-border: #8575ff;
+  --color-primary-alpha-3: color-mix(in srgb, #8575ff 3%, transparent);
+  --color-primary-alpha-5: color-mix(in srgb, #8575ff 5%, transparent);
+  --color-primary-alpha-8: color-mix(in srgb, #8575ff 8%, transparent);
+  --color-primary-alpha-12: color-mix(in srgb, #8575ff 12%, transparent);
+  --color-primary-alpha-15: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-primary-alpha-20: color-mix(in srgb, #8575ff 20%, transparent);
+  --color-primary-alpha-25: color-mix(in srgb, #8575ff 25%, transparent);
+  --color-primary-alpha-30: color-mix(in srgb, #8575ff 30%, transparent);
+  --color-primary-alpha-40: color-mix(in srgb, #8575ff 40%, transparent);
+  --color-primary-alpha-50: color-mix(in srgb, #8575ff 50%, transparent);
+  --color-primary-alpha-60: color-mix(in srgb, #8575ff 60%, transparent);
+  --color-primary-subtle: color-mix(in srgb, #8575ff 25%, transparent);
+  --color-primary-border: color-mix(in srgb, #8575ff 50%, transparent);
+  --color-focus-ring: color-mix(in srgb, #8575ff 60%, transparent);
+  --color-sidebar-hover: color-mix(in srgb, #8575ff 15%, transparent);
+  --block-hover-outline: 1px dashed color-mix(in srgb, #8575ff 50%, transparent);
+  --block-selected-outline: 1px solid #8575ff;
+  --block-selection-outline-offset: 2px;
+  --block-selected-halo: 0 0 8px color-mix(in srgb, #8575ff 40%, transparent);
+  --color-accent: #8575ff;
+  --color-accent-foreground: #8575ff;
+  --color-accent-dark: #4200db;
+  --color-accent-light: color-mix(in srgb, #8575ff 15%, transparent);
+  --color-accent-inverse: #fff;
+  --color-link: #8575ff;
+  --color-primary-gradient-end: color-mix(in srgb, #8575ff 35%, transparent);
+  --color-primary-bg-solid: #1a1530;
+  --color-user-bubble: #333843;
+  --color-user-bubble-text: #e4e4ed;
+  --color-text-secondary: #a0a0b4;
+  --color-text-tertiary: #8a8a9a;
+  --color-text-muted: #6e6e82;
+  --color-text-on-primary: #fff;
+  --color-success: #4ade80;
+  --color-success-dark: #00802f;
+  --color-success-light: #d9ffd6;
+  --color-success-hover: #005c26;
+  --color-success-bg: #1c2c22;
+  --color-success-border: #0e3d1c;
+  --color-success-foreground: #4ade80;
+  --color-success-dark-foreground: #00802f;
+  --color-success-text: #4ade80;
+  --color-error: #ff6b6b;
+  --color-error-dark: #db0000;
+  --color-error-light: #ffe0e0;
+  --color-error-hover: #3b1a24;
+  --color-error-bg: #3b1a24;
+  --color-error-border: #5e1a24;
+  --color-error-active-border: #db0000;
+  --color-error-foreground: #ff6b6b;
+  --color-error-dark-foreground: #db0000;
+  --color-error-inverse: #fff;
+  --color-error-text: #ff6b6b;
+  --color-warning: #fbbf24;
+  --color-warning-dark: #573a00;
+  --color-warning-light: #fffbbd;
+  --color-warning-hover: #db9200;
+  --color-warning-bg: #3d3520;
+  --color-warning-border: #5e4a1a;
+  --color-warning-foreground: #fbbf24;
+  --color-warning-dark-foreground: #573a00;
+  --color-warning-inverse: #573a00;
+  --color-surface-warning: #fffbbd;
+  --color-text-warning: #573a00;
+  --color-info: #60a5fa;
+  --color-info-dark: #006ce0;
+  --color-info-light: #d1f1ff;
+  --color-info-hover: #003b8f;
+  --color-info-bg: #1a2a42;
+  --color-info-border: #0f3d6e;
+  --color-info-foreground: #60a5fa;
+  --color-info-dark-foreground: #002a66;
+  --color-info-inverse: #fff;
+  --color-overlay: #000000b3;
+  --color-shadow: #0000004d;
+  --color-hover: #ffffff0d;
+  --color-tooltip-bg: #1e1e2af2;
+  --color-tooltip-text: #e4e4ed;
+  --color-voice-purple: #8575ff;
+  --color-voice-purple-dark: #4200db;
+  --color-voice-purple-light: #8575ff;
+  --color-voice-red: #ff6b6b;
+  --color-voice-red-dark: #db0000;
+  --color-voice-amber: #fbbf24;
+  --color-voice-purple-glow: #8575ff66;
+  --color-voice-red-glow: #db000066;
+  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
+  --text-2xs: .5625rem;
+  --text-xs: .625rem;
+  --text-sm: .6875rem;
+  --text-base: .75rem;
+  --text-md: .8125rem;
+  --text-lg: .875rem;
+  --text-xl: 1rem;
+  --text-2xl: 1.125rem;
+  --text-3xl: 1.25rem;
+  --text-4xl: 1.5rem;
+  --text-5xl: 2rem;
+  --spacing-1: calc(.25rem * 1);
+  --spacing-1-5: calc(.25rem * 1.5);
+  --spacing-2: calc(.25rem * 2);
+  --spacing-3: calc(.25rem * 3);
+  --spacing-4: calc(.25rem * 4);
+  --spacing-5: calc(.25rem * 5);
+  --spacing-6: calc(.25rem * 6);
+  --spacing-7: calc(.25rem * 7);
+  --spacing-8: calc(.25rem * 8);
+  --spacing-9: calc(.25rem * 9);
+  --spacing-10: calc(.25rem * 10);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-card: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 8px;
+  --shadow-sm: 0 1px 2px #0003;
+  --shadow-md: 0 4px 12px #0000004d;
+  --color-success-bg-solid: #1a3d28;
+  --color-error-bg-solid: #4a2028;
+  --color-error-border-solid: #5e1a24;
+  --color-warning-bg-solid: #4a3a1e;
+  --color-warning-text: #fbbf24;
+  --color-info-bg-solid: #1a3050;
+  --color-info-bg-solid-alt: #222240;
+  --color-info-text: #60a5fa;
+  --color-info-text-alt: #818cf8;
+  --color-emerald: #34d399;
+  --color-teal: #5eead4;
+  --color-code-bg: #1e1e2a;
+  --color-code-header-bg: #252535;
+  --color-code-text: #e4e4ed;
+  --color-code-border: #2e2e3e;
+  --color-code-muted: #6e6e82;
+  --color-inline-code-bg: #1e1e2a;
+  --color-inline-code-text: #e4e4ed;
+  --color-inline-code-border: #2e2e3e;
+  --color-scrollbar-thumb: #3a3a4e;
+  --color-scrollbar-track: transparent;
+  --color-graph-node-text: #e4e4ed;
+  --color-graph-node-text-dim: #6e6e82;
+  --color-graph-edge-default: #6e6e82;
+  --color-graph-edge-cross: #f39c12;
+  --color-graph-edge-text: #a0a0b4;
+  --color-graph-edge-stroke: #1a1a24;
+  --color-graph-highlight-bg: #ff6b6b;
+  --color-graph-highlight-border: #e74c3c;
+  --color-graph-search-bg: gold;
+  --color-graph-search-border: orange;
+  --color-graph-focus-border: #f44;
+  --color-graph-external-border: #6e6e82;
+  --color-graph-cat-file: #5dade2;
+  --color-graph-cat-folder: #aab7b8;
+  --color-graph-cat-file-aggregate: #5499c7;
+  --color-graph-cat-class: #bb8fce;
+  --color-graph-cat-function: #58d68d;
+  --color-graph-cat-method: #48c9b0;
+  --color-graph-cat-variable: #f5b041;
+  --color-graph-cat-import: #eb984e;
+  --color-graph-cat-module: #7e8ce0;
+  --color-graph-cat-concept: #ec7063;
+  --color-graph-cat-person: #ff8a8a;
+  --color-graph-cat-org: #76d7c4;
+  --color-graph-cat-organization: #76d7c4;
+  --color-graph-cat-product: #b8b0fe;
+  --color-graph-cat-metric: #fea0c0;
+  --color-graph-cat-location: #7e9bb5;
+  --color-graph-cat-date: #f092c0;
+  --color-graph-cat-code: #5dade2;
+  --color-graph-cat-doc: #aab7b8;
+  --color-graph-cat-url: #45d6b5;
+  --color-graph-cat-email: #8e7cf7;
+  --color-graph-cat-unknown: #d5dbdb;
+  --color-graph-rel-contains: #d5dbdb;
+  --color-graph-rel-extends: #bb8fce;
+  --color-graph-rel-implements: #5dade2;
+  --color-graph-rel-imports: #eb984e;
+  --color-graph-rel-uses: #58d68d;
+  --color-graph-rel-calls: #52be80;
+  --color-graph-rel-references: #f5b041;
+  --color-graph-rel-related-to: #aab7b8;
+  --color-graph-rel-works-on: #ec7063;
+  --color-graph-rel-owns: #48c9b0;
+  --color-graph-rel-depends-on: #eb984e;
+  --color-graph-rel-parent-of: #d5dbdb;
+  --qs-content: #fff;
+  --qs-main: #fff;
+  --qs-primary-foreground: #131920;
+  --qs-secondary-foreground: #656871;
+  --qs-tertiary-foreground: #6e6e82;
+  --qs-placeholder-foreground: #8c8c94;
+  --qs-divider: #dedee3;
+  --qs-default-border: #8c8c94;
+  --qs-neutral-soft: #b4b4bb;
+  --qs-neutral-gray-50: #1e1e2a;
+  --qs-tertiary-background: #1e1e2a;
+  --qs-action-hover: #f3f3f7;
+  --qs-primary-default: #4200db;
+  --qs-primary-dark: #35009e;
+  --qs-primary-light: #e8e6ff;
+  --qs-success-default: #00802f;
+  --qs-error-default: #db0000;
+  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --safe-top: 0px;
+  --safe-bottom: 0px;
+  --safe-left: 0px;
+  --safe-right: 0px;
+  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  --qs-font-base-letter-spacing: .15px;
+  --qs-shadow-sm: 0 0 2px 0 #00000029, 0 0 4px 0 #00000029;
+  --qs-shadow-md: 0 0 2px 0 #00000029, 0 2px 8px 1px #00000029;
+  --qs-shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029;
+  --qs-shadow-xl: 0 4px 8px 2px #00000029, 0 6px 20px 4px #00000029;
+  --qs-width-modal-sm: 384px;
+  --qs-width-modal-md: 600px;
+  --qs-width-modal-lg: 1136px;
+  --qs-grid-gap: 16px;
+  --qs-grid-gap-xl: 24px;
+  --qs-primary-medium: #8575ff;
+  --qs-primary-inverse: #fff;
+  --qs-neutral-lightest: #f9f9fb;
+  --qs-neutral-light: #f3f3f7;
+  --qs-neutral-default: #dedee3;
+  --qs-neutral-medium: #8c8c94;
+  --qs-neutral-deep: #656871;
+  --qs-neutral-dark: #333843;
+  --qs-neutral-strong: #131920;
+  --qs-neutral-white: #fff;
+  --qs-neutral-black: #000;
+  --qs-success-medium: #005c26;
+  --qs-success-dark: #00471e;
+  --qs-success-light: #d9ffd6;
+  --qs-success-inverse: #fff;
+  --qs-info-default: #006ce0;
+  --qs-info-medium: #003b8f;
+  --qs-info-dark: #002a66;
+  --qs-info-light: #d1f1ff;
+  --qs-info-inverse: #fff;
+  --qs-warning-default: #f2b100;
+  --qs-warning-medium: #db9200;
+  --qs-warning-dark: #573a00;
+  --qs-warning-light: #fffbbd;
+  --qs-warning-inverse: #573a00;
+  --qs-warning-experimental: #f2b100;
+  --qs-warning-experimental-light: #fffbbd;
+  --qs-warning-experimental-light-foreground: #fffbbd;
+  --qs-error-medium: #900;
+  --qs-error-dark: #700000;
+  --qs-error-light: #ffe0e0;
+  --qs-error-inverse: #fff;
+  --qs-connection-default: #db3300;
+  --qs-connection-soft: #ff997a;
+  --qs-connection-light: #ffe0d6;
+  --qs-connection-dark: #661800;
+  --qs-automation-default: #b3008f;
+  --qs-automation-medium: #d600ba;
+  --qs-automation-soft: #ff94f1;
+  --qs-automation-light: #ffe0fb;
+  --qs-automation-dark: #660052;
+  --qs-insight-default: #a000b8;
+  --qs-insight-soft: #f299ff;
+  --qs-insight-light: #fce6ff;
+  --qs-insight-dark: #590066;
+  --qs-visualization-default: #7300e5;
+  --qs-visualization-soft: #d4a8ff;
+  --qs-visualization-light: #f2e5ff;
+  --qs-visualization-dark: #45008a;
+  --qs-spice: #ff9800;
+  --qs-coachmark: #006ce0;
+  --qs-brand: #fff;
+  --qs-brand-foreground: #131920;
+  --qs-brand-navbar: #131920;
+  --qs-brand-navbar-foreground: #fff;
+  --qs-brand-navbar-light: #dedee3;
+  --qs-brand-navbar-dark: #000;
+  --qs-application-navbar: #4200db;
+  --qs-application-navbar-foreground: #fff;
+  --qs-application-navbar-light: #e8e6ff;
+  --qs-application-navbar-dark: #35009e;
+  --qs-dimension: #4200db;
+  --qs-dimension-foreground: #fff;
+  --qs-dimension-experimental: #4200db;
+  --qs-dimension-experimental-foreground: #4200db;
+  --qs-measure: #00802f;
+  --qs-measure-foreground: #fff;
+  --qs-measure-experimental: #f2b100;
+  --qs-measure-experimental-foreground: #f2b100;
+  --qs-content-inverse: #333843;
+  --qs-content-inverse-active: #131920;
+  --qs-secondary: #dedee3;
+  --qs-disabled: #8c8c94;
+  --qs-divider-light: #f3f3f7;
+  --qs-hover-border: #333843;
+  --qs-active-border: #4200db;
+  --qs-disabled-border: #dedee3;
+  --qs-error-border: #ffe0e0;
+  --qs-error-active-border: #db0000;
+  --qs-disabled-foreground: #b4b4bb;
+  --qs-primary-inverse-foreground: #fff;
+  --qs-error-foreground: #db0000;
+  --qs-contrast-foreground: #131920;
+  --qs-main-foreground: #131920;
+  --qs-main-secondary-foreground: #656871;
+  --qs-action-disabled: #f3f3f7;
+  --qs-action-active: #e8e6ff;
+  --qs-default-badge: #dedee3;
+  --qs-tag-default: #dedee3;
+  --qs-tag-soft-border: #b4b4bb;
+  --qs-focus-offset: 1px;
+  --qs-toggle-tile-sm: calc(.25rem * 8);
+  --qs-toggle-tile-md: calc(.25rem * 12);
+  --qs-toggle-tile-lg: calc(.25rem * 15);
+  --qs-shadow-pin-right: inset 4px 0 4px -4px #00000029;
+  --qs-shadow-pin-left: inset -4px 0 4px -4px #00000029;
+  --react-pdf-text-layer: 1;
+  --highlight-bg-color: #b400aa;
+  --highlight-selected-bg-color: #006400;
+  --react-pdf-annotation-layer: 1;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
+  --input-focus-border-color: Highlight;
+  --input-focus-outline: 1px solid Canvas;
+  --input-unfocused-border-color: transparent;
+  --input-disabled-border-color: transparent;
+  --input-hover-border-color: black;
+  --link-outline: none;
+  color-scheme: dark;
+}
+body { background: var(--color-bg); color: var(--color-text); }
+a { color: var(--color-link, var(--color-primary)); }</style>
+<meta charset="UTF-8">
+<title>Extended Downtime Equipment Tracker — BJC1</title>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@12.1.2/highcharts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highcharts@12.1.2/modules/accessibility.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f1f4;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #505560;
+  --color-text-muted: #8b8fa3;
+  --color-border: #d4d7e0;
+  --color-border-light: #e8eaef;
+  --color-primary: #0073e6;
+  --color-error: #de350b;
+  --color-warning: #ff991f;
+  --color-success: #00875a;
+  --color-info: #0065ff;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 99px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #16181d;
+    --color-bg-secondary: #1e2028;
+    --color-surface: #23252d;
+    --color-surface-hover: #2a2d37;
+    --color-text: #e8e9ed;
+    --color-text-secondary: #a4a7b5;
+    --color-text-muted: #6c7086;
+    --color-border: #3a3d4a;
+    --color-border-light: #2d303b;
+    --color-primary: #4da3ff;
+    --color-error: #ff6b5b;
+    --color-warning: #ffb845;
+    --color-success: #36b37e;
+    --color-info: #5b9dff;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--color-bg);font-family:var(--font-sans);color:var(--color-text);padding:20px 24px}
+h1{font-size:22px;font-weight:700;margin-bottom:3px}
+.subtitle{color:var(--color-text-muted);font-size:13px;margin-bottom:20px}
+
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--color-border-light);margin-bottom:20px}
+.tab{padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;color:var(--color-text-muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+.tab:hover{color:var(--color-text)}
+.tab.active{color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px}
+.kpi-card{background:var(--color-bg-secondary);border:1px solid var(--color-border-light);border-radius:var(--radius-md);padding:14px 16px}
+.kpi-label{color:var(--color-text-muted);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;font-weight:600}
+.kpi-value{font-size:26px;font-weight:700;font-family:var(--font-mono);line-height:1.1}
+.kpi-sub{font-size:11px;margin-top:3px;color:var(--color-text-muted)}
+.kpi-sub.bad{color:var(--color-error)}.kpi-sub.good{color:var(--color-success)}
+
+.filter-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:flex-end}
+.filter-bar label{font-size:11px;color:var(--color-text-muted);font-weight:500;display:block;margin-bottom:2px}
+.filter-bar select,.filter-bar input[type="text"]{padding:5px 9px;font-size:12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-family:var(--font-sans)}
+.btn{padding:6px 13px;font-size:12px;border:none;border-radius:var(--radius-sm);cursor:pointer;font-weight:600;font-family:var(--font-sans)}
+.btn-primary{background:var(--color-primary);color:#fff}.btn-primary:hover{opacity:.9}
+.btn-outline{background:transparent;color:var(--color-primary);border:1px solid var(--color-primary)}.btn-outline:hover{background:var(--color-primary);color:#fff}
+.btn-sm{padding:4px 10px;font-size:11px}
+
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.chart-card{background:var(--color-bg-secondary);border:1px solid var(--color-border-light);border-radius:var(--radius-md);padding:14px}
+
+.table-card{background:var(--color-bg-secondary);border:1px solid var(--color-border-light);border-radius:var(--radius-md);padding:16px;overflow-x:auto;margin-bottom:20px}
+.table-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.table-header h3{font-size:14px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:var(--color-text-muted);font-weight:600;padding:8px 10px;border-bottom:2px solid var(--color-border);font-size:10px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--color-text)}
+th .si{margin-left:3px;font-size:9px;opacity:.3}
+th.sorted .si{opacity:1;color:var(--color-primary)}
+td{padding:8px 10px;color:var(--color-text);border-bottom:1px solid var(--color-border-light);white-space:nowrap}
+tr:hover td{background:var(--color-surface-hover)}
+tr.critical td{border-left:3px solid var(--color-error)}
+tr.warning td{border-left:3px solid var(--color-warning)}
+tr.moderate td{border-left:3px solid #f59e0b}
+
+.badge{display:inline-block;padding:2px 9px;border-radius:var(--radius-pill);font-size:10px;font-weight:600}
+.badge-down{background:#ffeaea;color:#ae2a19}.badge-parts{background:#fff7e6;color:#974f0c}
+.badge-repair{background:#e9f2ff;color:#0055cc}.badge-partial{background:#f3e8ff;color:#6b21a8}
+.badge-resolved{background:#e3fcef;color:#006644}
+.badge-shift{background:var(--color-bg);border:1px solid var(--color-border);padding:2px 7px;font-size:10px;border-radius:var(--radius-sm);margin-right:3px}
+
+.age-critical{color:var(--color-error);font-weight:700}.age-warning{color:var(--color-warning);font-weight:600}.age-moderate{color:#f59e0b}
+.impact-high{color:var(--color-error);font-weight:600}.impact-med{color:var(--color-warning);font-weight:600}.impact-low{color:var(--color-text-muted)}
+
+.comms-panel{background:var(--color-bg-secondary);border:1px solid var(--color-border-light);border-radius:var(--radius-md);padding:16px;margin-bottom:20px}
+.comms-entry{padding:10px 0;border-bottom:1px solid var(--color-border-light);display:grid;grid-template-columns:110px 90px 1fr;gap:10px;font-size:12px;align-items:start}
+.comms-entry:last-child{border-bottom:none}
+.comms-time{color:var(--color-text-muted);font-family:var(--font-mono);font-size:11px}
+.comms-who{font-weight:600;font-size:11px}
+.comms-msg{color:var(--color-text-secondary)}
+.comms-equip{font-size:10px;color:var(--color-primary);font-weight:600;margin-top:2px}
+.add-comms{display:flex;gap:8px;margin-top:12px}
+.add-comms input,.add-comms select{flex:1;padding:6px 9px;font-size:12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-family:var(--font-sans)}
+
+.vol-card{background:var(--color-bg-secondary);border:1px solid var(--color-border-light);border-radius:var(--radius-md);padding:16px;margin-bottom:20px}
+.vol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.vol-stat{text-align:center;padding:12px;background:var(--color-surface);border-radius:var(--radius-sm);border:1px solid var(--color-border-light)}
+.vol-stat .v{font-size:24px;font-weight:700;font-family:var(--font-mono)}
+.vol-stat .l{font-size:10px;text-transform:uppercase;color:var(--color-text-muted);margin-top:3px;letter-spacing:.04em}
+.vol-config{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;margin-bottom:12px}
+.vol-config label{color:var(--color-text-muted);font-weight:500}
+.vol-config input{width:90px;padding:5px 8px;font-size:12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-family:var(--font-mono)}
+
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal{background:var(--color-surface);border-radius:var(--radius-md);padding:22px;max-width:600px;width:92%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{font-size:16px;margin-bottom:14px}
+.fg{margin-bottom:12px}.fg label{display:block;font-size:11px;color:var(--color-text-muted);font-weight:500;margin-bottom:3px}
+.fg input,.fg select,.fg textarea{width:100%;padding:7px 9px;font-size:12px;border:1px solid var(--color-border);border-radius:var(--radius-sm);font-family:var(--font-sans);background:var(--color-bg-secondary);color:var(--color-text)}
+.fg textarea{resize:vertical;min-height:50px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+.modal-actions-left{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:16px}
+.btn-danger{background:var(--color-error);color:#fff;font-size:12px}.btn-danger:hover{opacity:.85}
+.confirm-delete{background:var(--color-error-bg,#ffeaea);border:1px solid var(--color-error);border-radius:var(--radius-sm);padding:10px 14px;margin-top:12px;font-size:12px;display:none}
+.confirm-delete.show{display:block}
+.confirm-delete p{margin-bottom:8px;color:var(--color-error);font-weight:600}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+
+.empty-state{text-align:center;padding:30px;color:var(--color-text-muted);font-size:13px}
+
+.shift-legend{display:flex;gap:16px;font-size:11px;color:var(--color-text-muted);margin-bottom:14px}
+.shift-legend span{display:flex;align-items:center;gap:4px}
+.sdot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.sdot.ds{background:#3b82f6}.sdot.ns{background:#8b5cf6}.sdot.all{background:var(--color-error)}
+
+.print-only{display:none}
+@media print{
+  .filter-bar,.btn,.add-comms,.tabs,.no-print{display:none!important}
+  .tab-panel{display:block!important}
+  .print-only{display:block}
+  body{padding:10px}
+}
+@media(max-width:900px){.kpi-row{grid-template-columns:repeat(2,1fr)}.charts-row{grid-template-columns:1fr}.vol-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<h1><i class="fa-solid fa-triangle-exclamation" style="color:var(--color-warning);margin-right:8px"></i>Extended Downtime Equipment Tracker</h1>
+<p class="subtitle">Track, escalate, and resolve equipment with prolonged outages &nbsp;·&nbsp; BJC1 &nbsp;·&nbsp; <span id="dateStamp"></span></p>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('overview')"><i class="fa-solid fa-chart-pie" style="margin-right:5px"></i>Overview</div>
+  <div class="tab" onclick="switchTab('comms')"><i class="fa-solid fa-comments" style="margin-right:5px"></i>Comms Log</div>
+  <div class="tab" onclick="switchTab('volume')"><i class="fa-solid fa-box-open" style="margin-right:5px"></i>Volume Impact</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="tab-panel active" id="panel-overview">
+<div class="kpi-row" id="kpiRow"></div>
+<div class="shift-legend">
+  <span><span class="sdot ds"></span> Day Shift (DS)</span>
+  <span><span class="sdot ns"></span> Night Shift (NS)</span>
+  <span><span class="sdot all"></span> All Shifts</span>
+</div>
+<div class="filter-bar">
+  <div><label>Status</label><select id="fSt"><option value="all">All</option><option>Down</option><option>Awaiting Parts</option><option>Awaiting Repair</option><option>Partially Op</option><option>Resolved</option></select></div>
+  <div><label>Location</label><select id="fLoc"><option value="all">All</option></select></div>
+  <div><label>Type</label><select id="fCat"><option value="all">All</option></select></div>
+  <div><label>Shift</label><select id="fShift"><option value="all">All Shifts</option><option>DS</option><option>NS</option><option>Both</option></select></div>
+  <div><label>Search</label><input type="text" id="fSearch" placeholder="ID or name..." style="width:150px"></div>
+  <div style="margin-left:auto"><button class="btn btn-primary" onclick="openAddModal()"><i class="fa-solid fa-plus" style="margin-right:4px"></i>Log Downtime</button></div>
+</div>
+<div class="charts-row">
+  <div class="chart-card"><div id="chartStatus" style="height:240px"></div></div>
+  <div class="chart-card"><div id="chartBar" style="height:240px"></div></div>
+</div>
+<div class="table-card">
+  <div class="table-header">
+    <h3><i class="fa-solid fa-list" style="margin-right:5px;color:var(--color-text-muted)"></i>Equipment Log</h3>
+    <span id="tCount" style="font-size:11px;color:var(--color-text-muted)"></span>
+  </div>
+  <table>
+    <thead><tr>
+      <th data-s="id">ID <span class="si">▼</span></th>
+      <th data-s="name">Name <span class="si">▼</span></th>
+      <th data-s="category">Type <span class="si">▼</span></th>
+      <th data-s="location">Location <span class="si">▼</span></th>
+      <th data-s="status">Status <span class="si">▼</span></th>
+      <th data-s="downHours">Down (hrs) <span class="si">▼</span></th>
+      <th data-s="shiftsImpacted">Shifts <span class="si">▼</span></th>
+      <th data-s="impact">Impact <span class="si">▼</span></th>
+      <th data-s="estVolLoss">Vol Loss <span class="si">▼</span></th>
+      <th data-s="owner">Owner <span class="si">▼</span></th>
+      <th data-s="rootCause">Root Cause <span class="si">▼</span></th>
+      <th>Next Step</th>
+      <th data-s="recurrences">Recur <span class="si">▼</span></th>
+    </tr></thead>
+    <tbody id="tBody"></tbody>
+  </table>
+  <div class="empty-state" id="emptyState" style="display:none">No equipment matches your filters.</div>
+</div>
+</div>
+
+<!-- COMMS LOG -->
+<div class="tab-panel" id="panel-comms">
+<div class="comms-panel">
+  <div class="table-header" style="margin-bottom:12px">
+    <h3><i class="fa-solid fa-timeline" style="margin-right:5px;color:var(--color-text-muted)"></i>Communication Log</h3>
+    <span style="font-size:11px;color:var(--color-text-muted)" id="commsCount"></span>
+  </div>
+  <div class="add-comms">
+    <select id="cEquip" style="flex:.7"></select>
+    <input type="text" id="cMsg" placeholder="Add an update..." style="flex:2">
+    <input type="text" id="cWho" placeholder="Your alias" style="flex:.5" value="raormsby">
+    <button class="btn btn-primary btn-sm" onclick="addComm()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+  <div id="commsBody" style="margin-top:14px"></div>
+</div>
+</div>
+
+<!-- VOLUME IMPACT -->
+<div class="tab-panel" id="panel-volume">
+<div class="vol-card">
+  <h3 style="font-size:14px;font-weight:600;margin-bottom:12px"><i class="fa-solid fa-calculator" style="margin-right:5px;color:var(--color-text-muted)"></i>Volume Impact Estimator</h3>
+  <div class="vol-config">
+    <div><label>Avg UPH (per equip)</label><input type="number" id="vUph" value="250" onchange="renderVolume()"></div>
+    <div><label>Cost per unit ($)</label><input type="number" id="vCost" value="0.85" step="0.01" onchange="renderVolume()"></div>
+    <div><label>HC displaced / equip</label><input type="number" id="vHC" value="2" onchange="renderVolume()"></div>
+    <div><label>HC hourly rate ($)</label><input type="number" id="vHCRate" value="19.50" step="0.50" onchange="renderVolume()"></div>
+  </div>
+  <div class="vol-grid" id="volGrid"></div>
+  <div style="margin-top:16px"><div id="chartVol" style="height:280px"></div></div>
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="mo">
+<div class="modal">
+  <h3 id="mTitle"><i class="fa-solid fa-wrench" style="margin-right:6px"></i>Log Equipment Downtime</h3>
+  <div class="row2">
+    <div class="fg"><label>Equipment ID *</label><input id="mId" placeholder="e.g. DD104"></div>
+    <div class="fg"><label>Equipment Name *</label><input id="mName" placeholder="e.g. Dock Door 104"></div>
+  </div>
+  <div class="row3">
+    <div class="fg"><label>Type</label><select id="mCat"><option>Conveyor</option><option>Divert</option><option>Dock Door</option><option>Opex</option><option>PID</option><option>Other</option></select></div>
+    <div class="fg"><label>Location</label><select id="mLoc"><option>FOB</option><option>Inbound Dock</option><option>RPND</option><option>ManSort</option><option>UIS</option><option>Fluid Lanes</option><option>EOL</option><option>SC3</option></select></div>
+    <div class="fg"><label>Status</label><select id="mSt"><option>Down</option><option>Awaiting Parts</option><option>Awaiting Repair</option><option>Partially Op</option><option>Resolved</option></select></div>
+  </div>
+  <div class="row3">
+    <div class="fg"><label>Hours Down</label><input type="number" id="mHrs" placeholder="48"></div>
+    <div class="fg"><label>Impact</label><select id="mImp"><option>High</option><option>Medium</option><option>Low</option></select></div>
+    <div class="fg"><label>Shifts Impacted</label><select id="mShift"><option>Both</option><option>DS</option><option>NS</option></select></div>
+  </div>
+  <div class="row2">
+    <div class="fg"><label>Owner (RME tech)</label><input id="mOwn" placeholder="e.g. jsmith"></div>
+    <div class="fg"><label>Ticket / WO #</label><input id="mTkt" placeholder="e.g. SIM-12345"></div>
+  </div>
+  <div class="fg"><label>Root Cause</label><input id="mRC" placeholder="e.g. Motor failure"></div>
+  <div class="fg"><label>Next Step / ETA</label><textarea id="mNS" placeholder="e.g. Awaiting motor from vendor — ETA Tues"></textarea></div>
+  <div class="row3">
+    <div class="fg"><label>Recurrences (30d)</label><input type="number" id="mRec" value="1"></div>
+    <div class="fg"><label>Blockers</label><input id="mBlock" placeholder="e.g. Vendor lead time"></div>
+    <div class="fg"><label>Est. UPH affected</label><input type="number" id="mUph" placeholder="250"></div>
+  </div>
+  <div class="confirm-delete" id="confirmDelete">
+    <p><i class="fa-solid fa-exclamation-triangle" style="margin-right:4px"></i>Are you sure? This will permanently remove this equipment entry.</p>
+    <button class="btn btn-danger btn-sm" onclick="confirmDeleteE()"><i class="fa-solid fa-trash" style="margin-right:4px"></i>Yes, Delete</button>
+    <button class="btn btn-outline btn-sm" onclick="cancelDelete()" style="margin-left:6px">No, Keep It</button>
+  </div>
+  <div class="modal-actions-left">
+    <div id="deleteBtn" style="display:none"><button class="btn btn-danger" onclick="showDeleteConfirm()"><i class="fa-solid fa-trash" style="margin-right:4px"></i>Delete</button></div>
+    <div style="display:flex;gap:10px;margin-left:auto"><button class="btn btn-outline" onclick="closeM()">Cancel</button><button class="btn btn-primary" onclick="saveE()"><i class="fa-solid fa-check" style="margin-right:4px"></i>Save</button></div>
+  </div>
+</div>
+</div>
+
+<script>
+// Date stamp
+document.getElementById('dateStamp').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+// --- DATA ---
+let data = [
+  {id:'DD104',name:'Dock Door 104',category:'Dock Door',location:'FOB',status:'Down',downHours:72,impact:'High',owner:'mjones',rootCause:'Hydraulic cylinder failure',nextStep:'Awaiting cylinder from vendor — ETA Wed',ticket:'SIM-44821',recurrences:4,dateDown:'2026-09-23',shiftsImpacted:'Both',blocker:'Vendor lead time',uphAffected:300},
+  {id:'PID6',name:'PID Scanner 6',category:'PID',location:'Inbound Dock',status:'Awaiting Parts',downHours:36,impact:'Medium',owner:'agarcia',rootCause:'Sensor array degradation',nextStep:'Replacement sensor ordered — ETA Mon',ticket:'SIM-44890',recurrences:2,dateDown:'2026-09-24',shiftsImpacted:'Both',blocker:'Parts on order',uphAffected:200},
+  {id:'CVY-S3',name:'SC3 Conveyor',category:'Conveyor',location:'SC3',status:'Awaiting Repair',downHours:18,impact:'High',owner:'tbrown',rootCause:'Rolled belt — motor misalignment',nextStep:'RME scheduled for tonight DS',ticket:'SIM-44912',recurrences:1,dateDown:'2026-09-25',shiftsImpacted:'DS',blocker:'',uphAffected:400},
+  {id:'DIV-22',name:'Divert 22',category:'Divert',location:'ManSort',status:'Down',downHours:54,impact:'Medium',owner:'cspruill',rootCause:'Pneumatic actuator seized',nextStep:'Compressed air line replacement in progress',ticket:'SIM-44803',recurrences:3,dateDown:'2026-09-23',shiftsImpacted:'Both',blocker:'None',uphAffected:180},
+  {id:'OPX-01',name:'Opex Unit 1',category:'Opex',location:'RPND',status:'Partially Op',downHours:12,impact:'Low',owner:'kwilson',rootCause:'Feed tray misalignment',nextStep:'Calibration queued for maint window',ticket:'TT-99281',recurrences:1,dateDown:'2026-09-26',shiftsImpacted:'NS',blocker:'',uphAffected:150},
+  {id:'CVY-FL3',name:'Fluid Lane 3 Conveyor',category:'Conveyor',location:'Fluid Lanes',status:'Resolved',downHours:96,impact:'High',owner:'rjohnson',rootCause:'VFD fault — capacitor bank failure',nextStep:'Resolved — PM scheduled for 10/05',ticket:'SIM-44750',recurrences:2,dateDown:'2026-09-20',shiftsImpacted:'Both',blocker:'',uphAffected:500},
+];
+
+let comms = [
+  {time:'09/26 08:12',who:'raormsby',msg:'DD104 still down — escalated to site RME lead. Cylinder vendor confirmed Wed delivery.',equipId:'DD104'},
+  {time:'09/26 07:45',who:'cspruill',msg:'DIV-22 air line replacement started, ETA 2 hrs to test.',equipId:'DIV-22'},
+  {time:'09/25 22:30',who:'tbrown',msg:'CVY-S3 belt re-tracked, testing motor alignment now.',equipId:'CVY-S3'},
+  {time:'09/25 18:00',who:'agarcia',msg:'PID6 sensor on order, backup scanner deployed at Inbound Dock.',equipId:'PID6'},
+  {time:'09/25 14:15',who:'rjohnson',msg:'Fluid Lane 3 conveyor back online after capacitor bank replacement. Running full speed.',equipId:'CVY-FL3'},
+  {time:'09/24 20:00',who:'raormsby',msg:'Notified ops leadership about DD104 & DIV-22 extended outages — redirecting volume to adjacent lanes.',equipId:'DD104'},
+];
+
+let editIdx=-1, sortCol='downHours', sortDir=-1;
+
+function getC(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+
+// --- TABS ---
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.textContent.toLowerCase().includes(t.slice(0,4))));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+t));
+  if(t==='volume')renderVolume();
+  if(t==='comms')renderComms();
+}
+
+// --- KPI ---
+function renderKPIs(){
+  const active=data.filter(e=>e.status!=='Resolved');
+  const td=active.length;
+  const ah=active.length?Math.round(active.reduce((s,e)=>s+e.downHours,0)/active.length):0;
+  const crit=active.filter(e=>e.downHours>=24).length;
+  const rep=active.filter(e=>e.recurrences>=3).length;
+  const uph=Math.round(active.reduce((s,e)=>s+(e.uphAffected||0),0));
+  document.getElementById('kpiRow').innerHTML=`
+    <div class="kpi-card"><div class="kpi-label">Active Down</div><div class="kpi-value" style="color:var(--color-error)">${td}</div><div class="kpi-sub">equipment affected</div></div>
+    <div class="kpi-card"><div class="kpi-label">Avg Downtime</div><div class="kpi-value">${ah}<span style="font-size:13px;color:var(--color-text-muted)">h</span></div><div class="kpi-sub ${ah>24?'bad':'good'}">${ah>24?'⚠ Above 24h target':'✓ Within target'}</div></div>
+    <div class="kpi-card"><div class="kpi-label">Critical (>24h)</div><div class="kpi-value" style="color:${crit?'var(--color-error)':'var(--color-success)'}">${crit}</div><div class="kpi-sub bad">${crit?'need escalation':'all clear'}</div></div>
+    <div class="kpi-card"><div class="kpi-label">Repeat Offenders</div><div class="kpi-value" style="color:var(--color-warning)">${rep}</div><div class="kpi-sub">3+ in 30 days</div></div>
+    <div class="kpi-card"><div class="kpi-label">UPH at Risk</div><div class="kpi-value" style="color:var(--color-info)">${uph.toLocaleString()}</div><div class="kpi-sub">combined throughput loss</div></div>`;
+}
+
+// --- FILTERS ---
+function popFilters(){
+  const locs=[...new Set(data.map(e=>e.location))].sort();
+  const cats=[...new Set(data.map(e=>e.category))].sort();
+  document.getElementById('fLoc').innerHTML='<option value="all">All</option>'+locs.map(l=>`<option>${l}</option>`).join('');
+  document.getElementById('fCat').innerHTML='<option value="all">All</option>'+cats.map(c=>`<option>${c}</option>`).join('');
+  document.getElementById('cEquip').innerHTML=data.map(e=>`<option value="${e.id}">${e.id} — ${e.name}</option>`).join('');
+}
+
+function filtered(){
+  let d=[...data];
+  const st=document.getElementById('fSt').value;
+  const loc=document.getElementById('fLoc').value;
+  const cat=document.getElementById('fCat').value;
+  const sh=document.getElementById('fShift').value;
+  const q=document.getElementById('fSearch').value.toLowerCase();
+  if(st!=='all')d=d.filter(e=>e.status===st);
+  if(loc!=='all')d=d.filter(e=>e.location===loc);
+  if(cat!=='all')d=d.filter(e=>e.category===cat);
+  if(sh!=='all')d=d.filter(e=>e.shiftsImpacted===sh);
+  if(q)d=d.filter(e=>e.id.toLowerCase().includes(q)||e.name.toLowerCase().includes(q));
+  d.sort((a,b)=>{let av=a[sortCol],bv=b[sortCol];if(typeof av==='string'){av=av.toLowerCase();bv=bv.toLowerCase()}return av<bv?-sortDir:av>bv?sortDir:0});
+  return d;
+}
+
+// --- TABLE ---
+function sBadge(s){const m={'Down':'badge-down','Awaiting Parts':'badge-parts','Awaiting Repair':'badge-repair','Partially Op':'badge-partial','Resolved':'badge-resolved'};return`<span class="badge ${m[s]||''}">${s}</span>`}
+function shBadge(s){const c={'DS':'#3b82f6','NS':'#8b5cf6','Both':'var(--color-error)'};return`<span class="badge-shift" style="border-color:${c[s]||'var(--color-border)'};color:${c[s]||'inherit'}">${s}</span>`}
+function aC(h){return h>=48?'age-critical':h>=24?'age-warning':h>=12?'age-moderate':''}
+function iC(i){return i==='High'?'impact-high':i==='Medium'?'impact-med':'impact-low'}
+function rC(e){return e.downHours>=48?'critical':e.downHours>=24?'warning':e.downHours>=12?'moderate':''}
+
+function renderTable(){
+  const d=filtered();
+  const tb=document.getElementById('tBody');
+  const em=document.getElementById('emptyState');
+  document.getElementById('tCount').textContent=`${d.length} of ${data.length}`;
+  if(!d.length){tb.innerHTML='';em.style.display='block';return}
+  em.style.display='none';
+  const uph=parseInt(document.getElementById('vUph').value)||250;
+  tb.innerHTML=d.map(e=>{
+    const vl=e.downHours*(e.uphAffected||uph);
+    return`<tr class="${rC(e)}" style="cursor:pointer" onclick="openEdit(${data.indexOf(e)})">
+      <td><strong>${e.id}</strong></td><td>${e.name}</td><td>${e.category}</td><td>${e.location}</td>
+      <td>${sBadge(e.status)}</td><td class="${aC(e.downHours)}" style="font-family:var(--font-mono)">${e.downHours}h</td>
+      <td>${shBadge(e.shiftsImpacted)}</td><td class="${iC(e.impact)}">${e.impact}</td>
+      <td style="font-family:var(--font-mono);color:var(--color-text-secondary)">${vl.toLocaleString()}</td>
+      <td>${e.owner}</td>
+      <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis" title="${e.rootCause}">${e.rootCause}</td>
+      <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${e.nextStep}">${e.nextStep}</td>
+      <td style="font-family:var(--font-mono);text-align:center">${e.recurrences>=3?'<span style="color:var(--color-error);font-weight:700">'+e.recurrences+'</span>':e.recurrences}</td>
+    </tr>`}).join('');
+  document.querySelectorAll('th[data-s]').forEach(th=>th.classList.toggle('sorted',th.dataset.s===sortCol));
+}
+
+document.querySelectorAll('th[data-s]').forEach(th=>th.addEventListener('click',()=>{const c=th.dataset.s;if(sortCol===c)sortDir*=-1;else{sortCol=c;sortDir=1}renderTable()}));
+['fSt','fLoc','fCat','fShift'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{renderTable();renderCharts()}));
+document.getElementById('fSearch').addEventListener('input',renderTable);
+
+// --- CHARTS ---
+function renderCharts(){
+  const d=filtered().filter(e=>e.status!=='Resolved');
+  const sc={};d.forEach(e=>{sc[e.status]=(sc[e.status]||0)+1});
+  const sColors={'Down':getC('--color-error')||'#de350b','Awaiting Parts':getC('--color-warning')||'#ff991f','Awaiting Repair':getC('--color-info')||'#0065ff','Partially Op':'#8b5cf6'};
+  Highcharts.chart('chartStatus',{chart:{type:'pie',backgroundColor:'transparent',style:{fontFamily:getC('--font-sans')||'sans-serif'}},title:{text:'Active by Status',style:{color:getC('--color-text'),fontSize:'13px',fontWeight:'600'}},tooltip:{pointFormat:'<b>{point.y}</b> ({point.percentage:.0f}%)'},plotOptions:{pie:{innerSize:'55%',dataLabels:{enabled:true,format:'{point.name}: {point.y}',style:{color:getC('--color-text-secondary'),fontSize:'10px',fontWeight:'500',textOutline:'none'}}}},series:[{name:'Equip',data:Object.entries(sc).map(([n,y])=>({name:n,y,color:sColors[n]||'#aaa'}))}],credits:{enabled:false}});
+
+  const top=[...d].sort((a,b)=>b.downHours-a.downHours).slice(0,8);
+  Highcharts.chart('chartBar',{chart:{type:'bar',backgroundColor:'transparent',style:{fontFamily:getC('--font-sans')||'sans-serif'}},title:{text:'Longest Active Downtime',style:{color:getC('--color-text'),fontSize:'13px',fontWeight:'600'}},xAxis:{categories:top.map(e=>e.id),labels:{style:{color:getC('--color-text-secondary'),fontSize:'10px'}}},yAxis:{title:{text:'Hours',style:{color:getC('--color-text-muted'),fontSize:'10px'}},gridLineColor:getC('--color-border-light'),labels:{style:{color:getC('--color-text-secondary')}}},tooltip:{pointFormat:'<b>{point.y}h</b> down'},plotOptions:{bar:{borderRadius:3,dataLabels:{enabled:true,format:'{y}h',style:{fontSize:'10px',fontWeight:'600',textOutline:'none'}}}},series:[{name:'Hours',showInLegend:false,data:top.map(e=>({y:e.downHours,color:e.downHours>=48?(getC('--color-error')||'#de350b'):e.downHours>=24?(getC('--color-warning')||'#ff991f'):(getC('--color-info')||'#0065ff')}))}],credits:{enabled:false}});
+}
+
+// --- COMMS LOG ---
+function renderComms(){
+  document.getElementById('commsCount').textContent=comms.length+' entries';
+  document.getElementById('commsBody').innerHTML=comms.map(c=>`
+    <div class="comms-entry">
+      <span class="comms-time">${c.time}</span>
+      <span class="comms-who">${c.who}</span>
+      <span><span class="comms-msg">${c.msg}</span><div class="comms-equip"><i class="fa-solid fa-link" style="margin-right:3px"></i>${c.equipId}</div></span>
+    </div>`).join('');
+}
+function addComm(){
+  const msg=document.getElementById('cMsg').value.trim();
+  if(!msg)return;
+  const now=new Date();
+  const ts=String(now.getMonth()+1).padStart(2,'0')+'/'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  comms.unshift({time:ts,who:document.getElementById('cWho').value.trim()||'raormsby',msg,equipId:document.getElementById('cEquip').value});
+  document.getElementById('cMsg').value='';
+  renderComms();
+}
+
+// --- VOLUME IMPACT ---
+function renderVolume(){
+  const active=data.filter(e=>e.status!=='Resolved');
+  const baseUph=parseInt(document.getElementById('vUph').value)||250;
+  const costPerUnit=parseFloat(document.getElementById('vCost').value)||0.85;
+  const hcPerEquip=parseInt(document.getElementById('vHC').value)||2;
+  const hcRate=parseFloat(document.getElementById('vHCRate').value)||19.50;
+
+  let totalUnitsLost=0,totalCost=0,totalHCHours=0;
+  const perEquip=[];
+  active.forEach(e=>{
+    const uph=e.uphAffected||baseUph;
+    const units=e.downHours*uph;
+    const cost=units*costPerUnit;
+    const hcH=e.downHours*hcPerEquip;
+    totalUnitsLost+=units;totalCost+=cost;totalHCHours+=hcH;
+    perEquip.push({id:e.id,name:e.name,units,cost,hcH,hours:e.downHours,uph});
+  });
+  const laborCost=totalHCHours*hcRate;
+
+  document.getElementById('volGrid').innerHTML=`
+    <div class="vol-stat"><div class="v" style="color:var(--color-error)">${totalUnitsLost.toLocaleString()}</div><div class="l">Est. Units Lost</div></div>
+    <div class="vol-stat"><div class="v" style="color:var(--color-warning)">$${Math.round(totalCost).toLocaleString()}</div><div class="l">Revenue at Risk</div></div>
+    <div class="vol-stat"><div class="v" style="color:var(--color-info)">${totalHCHours.toLocaleString()}h</div><div class="l">HC Hours Displaced ($${Math.round(laborCost).toLocaleString()})</div></div>`;
+
+  const sorted=perEquip.sort((a,b)=>b.units-a.units).slice(0,8);
+  Highcharts.chart('chartVol',{
+    chart:{type:'bar',backgroundColor:'transparent',style:{fontFamily:getC('--font-sans')||'sans-serif'}},
+    title:{text:'Volume Loss by Equipment',style:{color:getC('--color-text'),fontSize:'13px',fontWeight:'600'}},
+    xAxis:{categories:sorted.map(e=>e.id),labels:{style:{color:getC('--color-text-secondary'),fontSize:'10px'}}},
+    yAxis:{title:{text:'Est. Units Lost',style:{color:getC('--color-text-muted'),fontSize:'10px'}},gridLineColor:getC('--color-border-light'),labels:{style:{color:getC('--color-text-secondary')}}},
+    tooltip:{pointFormat:'<b>{point.y:,.0f} units</b><br/>({point.cost})'},
+    plotOptions:{bar:{borderRadius:3,dataLabels:{enabled:true,format:'{point.y:,.0f}',style:{fontSize:'10px',fontWeight:'600',textOutline:'none'}}}},
+    series:[{name:'Units',showInLegend:false,data:sorted.map(e=>({y:e.units,cost:'$'+Math.round(e.cost).toLocaleString(),color:e.units>15000?(getC('--color-error')||'#de350b'):e.units>8000?(getC('--color-warning')||'#ff991f'):(getC('--color-info')||'#0065ff')}))}],
+    credits:{enabled:false}
+  });
+}
+
+// --- MODAL ---
+function openAddModal(){
+  editIdx=-1;
+  document.getElementById('mTitle').innerHTML='<i class="fa-solid fa-plus" style="margin-right:6px"></i>Log Equipment Downtime';
+  ['mId','mName','mOwn','mRC','mNS','mTkt','mBlock'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('mHrs').value='';document.getElementById('mRec').value='1';document.getElementById('mUph').value='';
+  document.getElementById('mSt').value='Down';document.getElementById('mImp').value='High';document.getElementById('mCat').value='Conveyor';document.getElementById('mShift').value='Both';document.getElementById('mLoc').value='FOB';
+  document.getElementById('deleteBtn').style.display='none';
+  document.getElementById('confirmDelete').classList.remove('show');
+  document.getElementById('mo').classList.add('active');
+}
+function openEdit(idx){
+  editIdx=idx;const e=data[idx];
+  document.getElementById('mTitle').innerHTML='<i class="fa-solid fa-pen" style="margin-right:6px"></i>Edit: '+e.id;
+  document.getElementById('mId').value=e.id;document.getElementById('mName').value=e.name;document.getElementById('mCat').value=e.category;
+  document.getElementById('mLoc').value=e.location;document.getElementById('mSt').value=e.status;document.getElementById('mHrs').value=e.downHours;
+  document.getElementById('mImp').value=e.impact;document.getElementById('mShift').value=e.shiftsImpacted;document.getElementById('mOwn').value=e.owner;
+  document.getElementById('mTkt').value=e.ticket;document.getElementById('mRC').value=e.rootCause;document.getElementById('mNS').value=e.nextStep;
+  document.getElementById('mRec').value=e.recurrences;document.getElementById('mBlock').value=e.blocker||'';document.getElementById('mUph').value=e.uphAffected||'';
+  document.getElementById('deleteBtn').style.display='block';
+  document.getElementById('confirmDelete').classList.remove('show');
+  document.getElementById('mo').classList.add('active');
+}
+function closeM(){document.getElementById('mo').classList.remove('active');document.getElementById('confirmDelete').classList.remove('show')}
+function showDeleteConfirm(){document.getElementById('confirmDelete').classList.add('show')}
+function cancelDelete(){document.getElementById('confirmDelete').classList.remove('show')}
+function confirmDeleteE(){
+  if(editIdx>=0){
+    data.splice(editIdx,1);
+    editIdx=-1;
+    closeM();popFilters();renderAll();
+  }
+}
+function saveE(){
+  const entry={id:document.getElementById('mId').value.trim(),name:document.getElementById('mName').value.trim(),category:document.getElementById('mCat').value,location:document.getElementById('mLoc').value,status:document.getElementById('mSt').value,downHours:parseInt(document.getElementById('mHrs').value)||0,impact:document.getElementById('mImp').value,shiftsImpacted:document.getElementById('mShift').value,owner:document.getElementById('mOwn').value.trim(),rootCause:document.getElementById('mRC').value.trim(),nextStep:document.getElementById('mNS').value.trim(),ticket:document.getElementById('mTkt').value.trim(),recurrences:parseInt(document.getElementById('mRec').value)||1,blocker:document.getElementById('mBlock').value.trim(),uphAffected:parseInt(document.getElementById('mUph').value)||0,dateDown:new Date().toISOString().slice(0,10)};
+  if(!entry.id||!entry.name){alert('Equipment ID and Name are required.');return}
+  if(editIdx>=0)data[editIdx]=entry;else data.push(entry);
+  closeM();popFilters();renderAll();
+}
+document.getElementById('mo').addEventListener('click',e=>{if(e.target===document.getElementById('mo'))closeM()});
+
+function renderAll(){renderKPIs();renderTable();renderCharts()}
+popFilters();renderAll();
+</script>
+
+</body></html>
